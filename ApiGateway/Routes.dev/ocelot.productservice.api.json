@@ -1,0 +1,149 @@
+{
+  "Routes": [
+    //for admin 
+    {
+      "DownstreamPathTemplate": "/api/admin/addproduct",
+      "DownstreamScheme": "https",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/admin/addproduct",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      /*
+        LeastConnection - tracks which services are dealing with requests and sends new requests to service with least existing requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        RoundRobin - loops through available services and sends requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        NoLoadBalancer - takes the first available service from config or service discovery.
+        CookieStickySessions - uses a cookie to stick all requests to a specific server
+      */
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/admin/getproducts",
+      "DownstreamScheme": "https",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/admin/getproducts",
+      "UpstreamHttpMethod": [ "GET" ],
+
+      /*
+        LeastConnection - tracks which services are dealing with requests and sends new requests to service with least existing requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        RoundRobin - loops through available services and sends requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        NoLoadBalancer - takes the first available service from config or service discovery.
+        CookieStickySessions - uses a cookie to stick all requests to a specific server
+      */
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/admin/removeproduct/{id}",
+      "DownstreamScheme": "https",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/admin/removeproduct/{id}",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      /*
+        LeastConnection - tracks which services are dealing with requests and sends new requests to service with least existing requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        RoundRobin - loops through available services and sends requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        NoLoadBalancer - takes the first available service from config or service discovery.
+        CookieStickySessions - uses a cookie to stick all requests to a specific server
+      */
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/admin/updateproduct/{id}",
+      "DownstreamScheme": "https",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/admin/updateproduct/{id}",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      /*
+        LeastConnection - tracks which services are dealing with requests and sends new requests to service with least existing requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        RoundRobin - loops through available services and sends requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        NoLoadBalancer - takes the first available service from config or service discovery.
+        CookieStickySessions - uses a cookie to stick all requests to a specific server
+      */
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    //for customer
+    {
+      "DownstreamPathTemplate": "/api/customer/getallproducts",
+      "DownstreamScheme": "https",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/customer/getallproducts",
+      "UpstreamHttpMethod": [ "GET" ],
+
+      /*
+        LeastConnection - tracks which services are dealing with requests and sends new requests to service with least existing requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        RoundRobin - loops through available services and sends requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        NoLoadBalancer - takes the first available service from config or service discovery.
+        CookieStickySessions - uses a cookie to stick all requests to a specific server
+      */
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/customer/getproductdetail/{id}",
+      "DownstreamScheme": "https",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/customer/getproductdetail/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+
+      /*
+        LeastConnection - tracks which services are dealing with requests and sends new requests to service with least existing requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        RoundRobin - loops through available services and sends requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        NoLoadBalancer - takes the first available service from config or service discovery.
+        CookieStickySessions - uses a cookie to stick all requests to a specific server
+      */
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    
+    {
+      "DownstreamPathTemplate": "/api/customer/getstock/{id}",
+      "DownstreamScheme": "https",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/customer/getstock/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+
+      /*
+        LeastConnection - tracks which services are dealing with requests and sends new requests to service with least existing requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        RoundRobin - loops through available services and sends requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        NoLoadBalancer - takes the first available service from config or service discovery.
+        CookieStickySessions - uses a cookie to stick all requests to a specific server
+      */
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    }
+
+
+  ]
+}

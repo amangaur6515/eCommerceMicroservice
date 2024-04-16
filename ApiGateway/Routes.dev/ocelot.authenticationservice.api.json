@@ -1,0 +1,44 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/authentication/register",
+      "DownstreamScheme": "https",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.AUTHENTICATIONAPI",
+      "UpstreamPathTemplate": "/gateway/authentication/register",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      /*
+        LeastConnection - tracks which services are dealing with requests and sends new requests to service with least existing requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        RoundRobin - loops through available services and sends requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        NoLoadBalancer - takes the first available service from config or service discovery.
+        CookieStickySessions - uses a cookie to stick all requests to a specific server
+      */
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/authentication/login",
+      "DownstreamScheme": "https",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.AUTHENTICATIONAPI",
+      "UpstreamPathTemplate": "/gateway/authentication/login",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      /*
+        LeastConnection - tracks which services are dealing with requests and sends new requests to service with least existing requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        RoundRobin - loops through available services and sends requests. The algorythm state is not distributed across a cluster of Ocelot’s.
+        NoLoadBalancer - takes the first available service from config or service discovery.
+        CookieStickySessions - uses a cookie to stick all requests to a specific server
+      */
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    }
+  ]
+}
